@@ -13,8 +13,14 @@ def event():
             game_close = True
 
 def simulation():
-    pass
+    if snake_direction == 'right':
+        snake_head['x']+=1
 def display():
-    pygame.draw.rect(dis,(255,255,255),(75,75,50,50))
+    dis.fill(black)
+    #pygame.draw.rect(dis,(255,255,255),(75,75,50,50))
+    drawSnakeHead()
     pygame.display.update()
-
+    clock.tick(speed)
+def drawSnakeHead():
+    global dis
+    pygame.draw.rect(dis,green,(snake_head['x']*20,snake_head['y']*20,20,20))
